@@ -1,0 +1,31 @@
+name: Configuration Help
+description: Questions about setting up Conduit
+labels: [question]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ask configuration questions here.
+
+  - type: textarea
+    id: setup
+    attributes:
+      label: Your Setup
+      description: Describe your deployment (Docker, binary, OS, providers, etc.)
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: What configuration question do you have?
+    validations:
+      required: true
+
+  - type: textarea
+    id: config
+    attributes:
+      label: Config (sanitized)
+      description: Paste your config.yaml with API keys removed
+      render: yaml

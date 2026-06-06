@@ -1,0 +1,37 @@
+server:
+  host: "0.0.0.0"
+  port: 8080
+
+providers:
+  - name: "openai"
+    type: "openai"
+    api_key: "${OPENAI_API_KEY}"
+    base_url: "https://api.openai.com/v1"
+    models:
+      - "gpt-4o"
+      - "gpt-4o-mini"
+      - "gpt-4-turbo"
+
+  - name: "anthropic"
+    type: "anthropic"
+    api_key: "${ANTHROPIC_API_KEY}"
+    base_url: "https://api.anthropic.com/v1"
+    models:
+      - "claude-sonnet-4"
+      - "claude-haiku-3"
+      - "claude-opus-4"
+
+routing:
+  default_provider: "openai"
+  default_model: "gpt-4o-mini"
+  rules:
+    - pattern: "claude-.*"
+      provider: "anthropic"
+      model: ""
+    - pattern: "gpt-.*"
+      provider: "openai"
+      model: ""
+
+cost:
+  max_budget_per_month: 1000.0
+  alert_threshold: 80.0

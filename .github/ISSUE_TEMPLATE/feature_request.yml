@@ -1,0 +1,44 @@
+name: Feature Request
+description: Suggest an idea for Conduit
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a feature!
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem would this feature solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How should this feature work?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: What alternatives have you considered?
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - Gateway (Go proxy)
+        - Engine (Python ML)
+        - Dashboard
+        - Documentation
+        - Deployment
+        - Other
+    validations:
+      required: true

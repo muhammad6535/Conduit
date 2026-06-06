@@ -1,0 +1,101 @@
+version: 2
+
+project_name: conduit
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: conduit
+    main: ./cmd/gateway/
+    binary: conduit
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    goarm:
+      - 7
+    ldflags:
+      - -s -w -X main.version={{ .Version }} -X main.commit={{ .Commit }} -X main.date={{ .Date }}
+    mod_timestamp: '{{ .CommitTimestamp }}'
+
+archives:
+  - id: conduit
+    builds: [conduit]
+    name_template: >-
+      conduit_{{ .Version }}_{{ if eq .Os "darwin" }}macOS{{ else }}{{ .Os }}{{ end }}_{{ .Arch }}
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - README.md
+      - LICENSE
+      - config.example.yaml
+
+checksum:
+  name_template: 'checksums.txt'
+  split: false
+
+snapshot:
+  name_template: '{{ incpatch .Version }}-next'
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+      - '^ci:'
+      - Merge pull request
+      - Merge branch
+
+dockers:
+  - image_templates:
+      - 'ghcr.io/conduit-ai/gateway:{{ .Version }}'
+      - 'ghcr.io/conduit-ai/gateway:latest'
+      - 'ghcr.io/conduit-ai/gateway:{{ .Major }}.{{ .Minor }}'
+    dockerfile: deploy/Dockerfile
+    use_buildx: true
+    build_flag_templates:
+      - '--label=org.opencontainers.image.title=Conduit'
+      - '--label=org.opencontainers.image.description=The AI Gateway That Pays for Itself'
+      - '--label=org.opencontainers.image.url=https://github.com/conduit-ai/gateway'
+      - '--label=org.opencontainers.image.source=https://github.com/conduit-ai/gateway'
+      - '--label=org.opencontainers.image.version={{ .Version }}'
+      - '--label=org.opencontainers.image.created={{ time "2006-01-02T15:04:05Z07:00" }}'
+      - '--label=org.opencontainers.image.revision={{ .FullCommit }}'
+      - '--label=org.opencontainers.image.licenses=Apache-2.0'
+    extra_files:
+      - config.example.yaml
+
+nfpms:
+  - id: conduit
+    package_name: conduit
+    file_name_template: >-
+      conduit_{{ .Version }}_{{ .Arch }}
+    vendor: Conduit AI
+    homepage: https://github.com/conduit-ai/gateway
+    maintainer: Conduit AI Team
+    description: The AI Gateway That Pays for Itself
+    license: Apache 2.0
+    formats:
+      - deb
+      - rpm
+    bindir: /usr/local/bin
+    contents:
+      - src: config.example.yaml
+        dst: /etc/conduit/config.yaml
+        type: config
+      - src: LICENSE
+        dst: /usr/share/doc/conduit/LICENSE
+
+release:
+  github:
+    owner: conduit-ai
+    name: gateway

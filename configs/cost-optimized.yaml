@@ -1,0 +1,36 @@
+# Conduit Config: Maximum Cost Optimization
+# Use this when your primary goal is minimizing LLM spend.
+# Routes aggressively to cheap models and local inference.
+
+server:
+  host: "0.0.0.0"
+  port: 8080
+
+providers:
+  - name: "openai"
+    type: "openai"
+    api_key: "${OPENAI_API_KEY}"
+    models:
+      - "gpt-4o-mini"
+
+  - name: "anthropic"
+    type: "anthropic"
+    api_key: "${ANTHROPIC_API_KEY}"
+    models:
+      - "claude-haiku-3"
+
+  - name: "local"
+    type: "openai"
+    api_key: "not-needed"
+    base_url: "http://localhost:11434/v1"
+    models:
+      - "llama3"
+      - "mistral"
+
+routing:
+  default_provider: "openai"
+  default_model: "gpt-4o-mini"
+
+cost:
+  max_budget_per_month: 100.0
+  alert_threshold: 50.0
