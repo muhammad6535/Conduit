@@ -76,7 +76,7 @@ Unlike LiteLLM (multi-provider proxy) or Helicone (observability), Conduit is th
 
 ```bash
 # Build
-go build -o build/conduit ./cmd/gateway/
+go build -o build/conduit .
 
 # Test
 go test ./... -v -count=1

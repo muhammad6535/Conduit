@@ -20,7 +20,7 @@ Closes #
 ## Testing
 
 - [ ] `go vet ./...` passes
-- [ ] `go build ./cmd/gateway/` succeeds
+- [ ] `go build` succeeds
 - [ ] Manual testing done
 
 ## Checklist

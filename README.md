@@ -71,7 +71,7 @@ docker run -p 8080:8080 \
 
 # Or build from source (2 seconds)
 git clone https://github.com/muhammad6535/conduit.git
-cd conduit && go build -o conduit ./cmd/gateway/
+cd conduit && go build -o conduit
 ./conduit
 ```
 

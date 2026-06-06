@@ -16,7 +16,7 @@ Conduit is an open-source AI cost-optimization gateway written primarily in Go, 
 see [ARCHITECTURE.md](ARCHITECTURE.md)
 
 Key directories:
-- `cmd/gateway/main.go` — Entry point
+- `main.go` — Entry point (root)
 - `internal/server/` — HTTP handlers, middleware
 - `internal/provider/` — Provider adapters (OpenAI, Anthropic)
 - `internal/cost/` — Cost tracking
@@ -28,7 +28,7 @@ Key directories:
 ## Commands
 
 ```bash
-go build -o build/conduit ./cmd/gateway/
+go build -o build/conduit .
 go test ./...
 go vet ./...
 ./build/conduit --config config.yaml
@@ -48,7 +48,7 @@ go vet ./...
 
 1. Create `internal/provider/<name>.go`
 2. Implement `provider.Provider` interface
-3. Add to `cmd/gateway/main.go` switch statement
+3. Add to `main.go` switch statement
 4. Add pricing to `internal/cost/tracker.go`
 5. Update config example and README
 

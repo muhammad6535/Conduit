@@ -108,7 +108,7 @@ if [ "$HAS_DOCKER" = "yes" ]; then
     sleep 2
 else
     BUILD_START=$(date +%s%N)
-    go build -o /tmp/conduit ./cmd/gateway/
+    go build -o /tmp/conduit .
     BUILD_END=$(date +%s%N)
     BUILD_MS=$(( (BUILD_END - BUILD_START) / 1000000 ))
     /tmp/conduit --config "$CONFIG_FILE" &

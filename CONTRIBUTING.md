@@ -16,7 +16,7 @@ We welcome contributions! Here's how to get started.
 ### Go Gateway
 
 ```bash
-go build ./cmd/gateway/
+go build
 ./gateway --config config.test.yaml
 ```
 
