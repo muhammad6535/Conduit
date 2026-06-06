@@ -4,7 +4,7 @@ WORKDIR /build
 COPY go.mod go.sum ./
 RUN go mod download
 COPY . .
-RUN CGO_ENABLED=0 go build -o /build/conduit ./cmd/gateway/
+RUN go build -o /build/conduit github.com/muhammad6535/conduit/cmd/gateway
 
 FROM alpine:3.20
 RUN apk add --no-cache ca-certificates tzdata
