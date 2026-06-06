@@ -7,6 +7,7 @@
 
 <p align="center">
   <a href="#quick-start"><b>Quick Start</b></a> •
+  <a href="#live-demo"><b>🎮 Live Demo</b></a> •
   <a href="#how-much-will-you-save"><b>💰 Savings Calculator</b></a> •
   <a href="#why-conduit-not-litellm"><b>vs LiteLLM</b></a> •
   <a href="ARCHITECTURE.md"><b>Architecture</b></a> •
@@ -23,6 +24,42 @@
   <img src="https://img.shields.io/github/issues/muhammad6535/conduit/good%20first%20issue?style=flat-square&label=good%20first%20issues" alt="Good First Issues">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square" alt="PRs Welcome">
 </p>
+
+---
+
+<p align="center">
+  <a href="https://conduit-production-58ef.up.railway.app/health">
+    <img src="https://img.shields.io/badge/🌐_Live_Demo-Railway-blue?style=for-the-badge" alt="Live Demo">
+  </a>
+  &nbsp;
+  <a href="https://railway.app/template/60dfe557-1503-4922-a77e-8c22f521f1f4">
+    <img src="https://img.shields.io/badge/🚀_Deploy_to-Railway-0B0D0E?style=for-the-badge&logo=railway" alt="Deploy to Railway">
+  </a>
+</p>
+
+---
+
+## 🎮 Live Demo
+
+Try Conduit right now — no API keys, no setup:
+
+```bash
+# Health check
+curl https://conduit-production-58ef.up.railway.app/health
+
+# List available models
+curl https://conduit-production-58ef.up.railway.app/v1/models
+
+# Send a chat request (mock response — connect API keys for real completions)
+curl -X POST https://conduit-production-58ef.up.railway.app/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{"model":"gpt-4o","messages":[{"role":"user","content":"Hello!"}]}'
+
+# See cost stats
+curl https://conduit-production-58ef.up.railway.app/v1/stats
+```
+
+> **Tip:** The demo uses a mock provider. To get real completions, deploy your own instance and add your API keys via Railway dashboard.
 
 ---
 
