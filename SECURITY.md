@@ -10,7 +10,7 @@
 
 We take security seriously. If you discover a security vulnerability, please report it privately:
 
-- **Email**: security@conduit-ai.dev
+- **GitHub**: Open a private security advisory at https://github.com/muhammad6535/conduit/security/advisories
 - **Do not** open a public GitHub issue.
 
 We will acknowledge receipt within 48 hours and provide a timeline for a fix.

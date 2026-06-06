@@ -57,16 +57,16 @@ changelog:
 
 dockers:
   - image_templates:
-      - 'ghcr.io/conduit-ai/gateway:{{ .Version }}'
-      - 'ghcr.io/conduit-ai/gateway:latest'
-      - 'ghcr.io/conduit-ai/gateway:{{ .Major }}.{{ .Minor }}'
+      - 'ghcr.io/muhammad6535/conduit:{{ .Version }}'
+      - 'ghcr.io/muhammad6535/conduit:latest'
+      - 'ghcr.io/muhammad6535/conduit:{{ .Major }}.{{ .Minor }}'
     dockerfile: deploy/Dockerfile
     use_buildx: true
     build_flag_templates:
       - '--label=org.opencontainers.image.title=Conduit'
       - '--label=org.opencontainers.image.description=The AI Gateway That Pays for Itself'
-      - '--label=org.opencontainers.image.url=https://github.com/conduit-ai/gateway'
-      - '--label=org.opencontainers.image.source=https://github.com/conduit-ai/gateway'
+      - '--label=org.opencontainers.image.url=https://github.com/muhammad6535/conduit'
+      - '--label=org.opencontainers.image.source=https://github.com/muhammad6535/conduit'
       - '--label=org.opencontainers.image.version={{ .Version }}'
       - '--label=org.opencontainers.image.created={{ time "2006-01-02T15:04:05Z07:00" }}'
       - '--label=org.opencontainers.image.revision={{ .FullCommit }}'
@@ -80,7 +80,7 @@ nfpms:
     file_name_template: >-
       conduit_{{ .Version }}_{{ .Arch }}
     vendor: Conduit AI
-    homepage: https://github.com/conduit-ai/gateway
+    homepage: https://github.com/muhammad6535/conduit
     maintainer: Conduit AI Team
     description: The AI Gateway That Pays for Itself
     license: Apache 2.0
@@ -97,5 +97,5 @@ nfpms:
 
 release:
   github:
-    owner: conduit-ai
-    name: gateway
+    owner: muhammad6535
+    name: conduit

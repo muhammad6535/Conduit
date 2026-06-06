@@ -14,10 +14,13 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square" alt="License">
-  <img src="https://img.shields.io/badge/Go-1.23%2B-00ADD8?style=flat-square&logo=go" alt="Go">
+  <img src="https://img.shields.io/github/actions/workflow/status/muhammad6535/conduit/ci.yml?branch=main&style=flat-square&logo=github" alt="CI">
+  <img src="https://img.shields.io/github/v/release/muhammad6535/conduit?style=flat-square&logo=go" alt="Release">
+  <img src="https://img.shields.io/github/license/muhammad6535/conduit?style=flat-square" alt="License">
+  <img src="https://img.shields.io/github/go-mod/go-version/muhammad6535/conduit?style=flat-square&logo=go" alt="Go">
   <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?style=flat-square&logo=python" alt="Python">
-  <img src="https://img.shields.io/badge/status-alpha-yellow?style=flat-square" alt="Status">
+  <img src="https://img.shields.io/github/stars/muhammad6535/conduit?style=flat-square&logo=github" alt="Stars">
+  <img src="https://img.shields.io/github/issues/muhammad6535/conduit/good%20first%20issue?style=flat-square&label=good%20first%20issues" alt="Good First Issues">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square" alt="PRs Welcome">
 </p>
 
@@ -64,10 +67,10 @@ Here's a typical enterprise scenario — 500 employees, each making 50 requests/
 docker run -p 8080:8080 \
   -e OPENAI_API_KEY="sk-..." \
   -e ANTHROPIC_API_KEY="sk-ant-..." \
-  ghcr.io/conduit-ai/gateway:latest
+  ghcr.io/muhammad6535/conduit:latest
 
 # Or build from source (2 seconds)
-git clone https://github.com/conduit-ai/gateway.git
+git clone https://github.com/muhammad6535/conduit.git
 cd conduit && go build -o conduit ./cmd/gateway/
 ./conduit
 ```
@@ -93,6 +96,27 @@ response = client.chat.completions.create(
 curl http://localhost:8080/v1/stats
 # → {"monthly_cost": "$12.45", "savings": "$47.80", "cache_hit_rate": "34%"}
 ```
+
+---
+
+## 🎬 Live Demo (Works With Ollama — Free, No API Keys)
+
+See Conduit saving money in real time using local models:
+
+```bash
+# Requirements: Ollama (https://ollama.com) + Docker or Go
+
+# Run the demo — shows routing, cost tracking, and savings
+./scripts/demo.sh
+# Or on Windows:
+.\scripts\demo.ps1
+```
+
+The demo spins up Conduit with Ollama, routes 4 different request types through it, and displays real-time cost comparisons. The terminal output shows:
+- Model routing (each request goes to the cheapest capable model)
+- Token usage and per-request cost
+- Session summary with cloud vs. local cost comparison
+- **~90% cost reduction** demonstrated in under 60 seconds
 
 ---
 
@@ -268,9 +292,9 @@ cost:
 
 We welcome contributors of all skill levels.
 
-- **🐛 Found a bug?** [Open an issue](https://github.com/conduit-ai/gateway/issues)
-- **💡 Have an idea?** Start a [Discussion](https://github.com/conduit-ai/gateway/discussions)
-- **🛠️ Want to code?** Check [good first issues](https://github.com/conduit-ai/gateway/labels/good%20first%20issue)
+- **🐛 Found a bug?** [Open an issue](https://github.com/muhammad6535/conduit/issues)
+- **💡 Have an idea?** Start a [Discussion](https://github.com/muhammad6535/conduit/discussions)
+- **🛠️ Want to code?** Check [good first issues](https://github.com/muhammad6535/conduit/labels/good%20first%20issue)
 - **📖 Want to improve docs?** PRs welcome!
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.

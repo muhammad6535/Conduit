@@ -3,9 +3,9 @@ package router
 import (
 	"fmt"
 	"regexp"
+	"github.com/muhammad6535/conduit/internal/config"
 
-	"github.com/conduit-ai/gateway/internal/config"
-	"github.com/conduit-ai/gateway/internal/provider"
+	"github.com/muhammad6535/conduit/internal/provider"
 )
 
 type Route struct {

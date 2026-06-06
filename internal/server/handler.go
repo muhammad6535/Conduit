@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/conduit-ai/gateway/internal/cost"
-	"github.com/conduit-ai/gateway/internal/provider"
-	"github.com/conduit-ai/gateway/internal/router"
+	"github.com/muhammad6535/conduit/internal/cost"
+	"github.com/muhammad6535/conduit/internal/provider"
+	"github.com/muhammad6535/conduit/internal/router"
 )
 
 type Handler struct {

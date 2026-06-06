@@ -21,6 +21,15 @@ providers:
       - "claude-haiku-3"
       - "claude-opus-4"
 
+  - name: "local"
+    type: "openai"
+    api_key: "not-needed"
+    base_url: "http://localhost:11434/v1"
+    models:
+      - "llama3.2"
+      - "llama3"
+      - "mistral"
+
 routing:
   default_provider: "openai"
   default_model: "gpt-4o-mini"
@@ -30,6 +39,9 @@ routing:
       model: ""
     - pattern: "gpt-.*"
       provider: "openai"
+      model: ""
+    - pattern: "llama.*|mistral.*"
+      provider: "local"
       model: ""
 
 cost:

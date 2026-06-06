@@ -25,7 +25,7 @@ We pledge to act and interact in ways that contribute to an open, welcoming, div
 
 ## Enforcement
 
-Project maintainers are responsible for clarifying and enforcing our standards. Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project team at conduct@conduit-ai.dev.
+Project maintainers are responsible for clarifying and enforcing our standards. Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project team by opening an issue on GitHub.
 
 ## Attribution
 

@@ -33,4 +33,4 @@ linters-settings:
   gofmt:
     simplify: true
   goimports:
-    local-prefixes: github.com/conduit-ai/gateway
+    local-prefixes: github.com/muhammad6535/conduit

@@ -8,9 +8,9 @@ import (
 	"io"
 	"net/http"
 	"strings"
+	"github.com/muhammad6535/conduit/internal/provider"
 
-	"github.com/conduit-ai/gateway/internal/provider"
-	"github.com/conduit-ai/gateway/internal/router"
+	"github.com/muhammad6535/conduit/internal/router"
 )
 
 func (h *Handler) streamChatCompletion(w http.ResponseWriter, r *http.Request, req *chatRequest, route *router.Route) {

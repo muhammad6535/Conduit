@@ -1,4 +1,4 @@
-module github.com/conduit-ai/gateway
+module github.com/muhammad6535/conduit
 
 go 1.25.1
 
