@@ -1,0 +1,46 @@
+server:
+  host: "0.0.0.0"
+  port: 8080
+
+providers:
+  - name: "demo"
+    type: "mock"
+    api_key: ""
+    models:
+      - "gpt-4o"
+      - "gpt-4o-mini"
+      - "claude-sonnet-4"
+      - "claude-haiku-3"
+
+  - name: "openai"
+    type: "openai"
+    api_key: "${OPENAI_API_KEY}"
+    base_url: "https://api.openai.com/v1"
+    models:
+      - "gpt-4o"
+      - "gpt-4o-mini"
+
+  - name: "anthropic"
+    type: "anthropic"
+    api_key: "${ANTHROPIC_API_KEY}"
+    base_url: "https://api.anthropic.com/v1"
+    models:
+      - "claude-sonnet-4"
+      - "claude-haiku-3"
+
+routing:
+  default_provider: "demo"
+  default_model: "gpt-4o-mini"
+  rules:
+    - pattern: "gpt-.*"
+      provider: "demo"
+    - pattern: "claude-.*"
+      provider: "demo"
+    - pattern: "llama.*|mistral.*"
+      provider: "demo"
+    - pattern: ".*"
+      provider: "demo"
+
+cost:
+  max_budget_per_month: 1000
+  alert_threshold: 80
