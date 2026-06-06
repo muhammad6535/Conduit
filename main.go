@@ -80,6 +80,7 @@ func main() {
 	mux.Use(chimw.Recoverer)
 	mux.Use(chimw.RealIP)
 
+	mux.Get("/", server.LandingHandler)
 	mux.Get("/health", h.Health)
 	mux.Get("/v1/models", h.ListModels)
 	mux.Post("/v1/chat/completions", h.ChatCompletions)
